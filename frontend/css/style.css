@@ -1,0 +1,79 @@
+body{
+    /* background-color: #303030; */
+    background-color: #dddada;
+    font-family: "Calibri";
+    font-size: 1.2rem;
+    /* color: white; */
+    color: black;
+}
+
+.container{
+    padding: 25px;
+    margin-bottom: 44px;
+}
+
+h1{
+    font-size: 150%;
+    text-align: center;
+}
+
+h2{
+    font-size: 110%;
+    text-align: center;
+}
+
+.listarticle{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 780px){
+    body{
+        font-size: 1.4rem;
+    }
+}
+
+.article{
+    border: none;
+}
+
+.link{
+    color: #fff;
+}
+
+.link:hover{
+    text-decoration: none;
+}
+
+.article .card-header{
+    background-color: #343a40;
+
+}
+
+.article .card-body{
+    background-color: rgba(0,0,0,0.4);
+}
+
+.article .publication-date{
+    text-align: right;
+}
+
+.article .addFavorite{
+    font-size: 1.4rem;
+    position: absolute;
+    top: 80px;
+    right: 10px;
+}
+
+.article .addFavorite .far{
+    color: rgba(0,0,0,0.2);
+}
+
+.article .addFavorite:hover{
+    color: yellow;
+    cursor: pointer;
+}
+
+.article .addFavorite.activated{
+    color: yellow;
+}
