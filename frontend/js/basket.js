@@ -25,26 +25,25 @@ if (listProduct === null) {
 // -------------------------Prix Total----------------------------
 // ---------------------------------------------------------------
 // Calcul du prix total des produits dans le panier
-function sumOfPrices() {
-  let prixTotal = [];
-  for (let t = 0; t < listProduct.length; t++) {
-    let priceProductToBasket = listProduct[t].prix;
 
-    prixTotal.push(priceProductToBasket);
-  }
-  const reducer = (accumulator, currentValue) => accumulator + currentValue;
-  const prixTotalCalcul = prixTotal.reduce(reducer);
+let prixTotal = [];
+for (let t = 0; t < listProduct.length; t++) {
+  let priceProductToBasket = listProduct[t].prix;
 
-  const totalPrice = `
+  prixTotal.push(priceProductToBasket);
+}
+
+
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+const prixTotalCalcul = prixTotal.reduce(reducer);
+const totalPrice = `
                       <tr> 
                         <td>Prix Total:</td>
                         <td></td>
                         <td>${prixTotalCalcul} €</td>
                       </tr>
                     `;
-  document.querySelector(".basket_resume").innerHTML += totalPrice;
-}
-sumOfPrices();
+document.querySelector(".basket_resume").innerHTML += totalPrice;
 
 // ----------------------------- END -------------------------------------
 
