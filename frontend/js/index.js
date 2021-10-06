@@ -10,16 +10,17 @@ class ArticleManager {
   }
 }
 
+
 function getProducts() {
   fetch("http://localhost:3000/api/teddies")
     .then((data) => data.json())
     .then((jsonListArticle) => {
-      console.log(jsonListArticle);
       for (let jsonArticle of jsonListArticle) {
-        let article = new Article(jsonArticle);
-        console.log(article);
+      let article = new Article(jsonArticle);
+      
+      
 
-        const articleZone = ` <div class="col-12 col-md-6 mt-5" data-id=${article._id}>
+      const zoneArticle = ` <div class="col-12 col-md-6 mt-5" data-id=${article._id}>
                               <a class="link" href="./product.html?${article._id}">
                                   <div class="card article">
                                       <div class="card-header">
@@ -35,7 +36,7 @@ function getProducts() {
                               </a>
                           </div>`;
 
-        document.querySelector(".produit").innerHTML += articleZone;
+      document.querySelector(".produit").innerHTML += zoneArticle;
       }
     });
 }
