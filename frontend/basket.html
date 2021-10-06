@@ -1,0 +1,161 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+      integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Mon panier</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="./index.html">Orinoco</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <!-- <a class="nav-link" href=""></a> -->
+          </li>
+        </ul>
+        <ul class="navbar-nav my-2 my-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="./index.html" title="home"> Accueil </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="basket.html" title="Mon Panier">
+              Panier
+              <!-- <i class="fas fa-shopping-basket"></i> -->
+            </a>
+          </li>
+          <!-- <li class="nav-item active">
+            <a class="nav-link" href="../contact/contact.html" title="Contact">
+                <i class="fas fa-envelope"></i>
+            </a>
+          </li> -->
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1>Dans votre panier:</h1>
+
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Nom du produit:</th>
+            <th scope="col">Couleur:</th>
+            <th scope="col">Prix:</th>
+          </tr>
+        </thead>
+        <tbody class="basket_resume"></tbody>
+        <tfoot class="total_price"></tfoot>
+      </table>
+      <h2>Veuillez compléter ce formulaire pour valider votre panier:</h2>
+      <div class="card col-12">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-12 col-md-12">
+              <label for="email">Votre email:</label>
+              <input
+                required
+                type="email"
+                id="email"
+                class="form-control"
+                name="email"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="lastName">Nom:</label>
+              <input
+                pattern="^[A-Za-z]*$"
+                required
+                type="text"
+                id="lastName"
+                class="form-control"
+                name="lastName"
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="firstName">Prénom:</label>
+              <input
+                pattern="^[A-Za-z]*$"
+                required
+                type="text"
+                id="firstName"
+                class="form-control"
+                name="firstName"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <label for="address">Adresse:</label>
+              <input
+                pattern="^[A-Za-z0-9\s,-.]*$"
+                required
+                type="text"
+                id="address"
+                class="form-control"
+                name="address"
+              />
+            </div>
+            <div class="form-group col-md-4">
+              <label for="city">Ville:</label>
+              <input
+                pattern="^[A-Za-z]*$"
+                required
+                type="text"
+                id="city"
+                class="form-control"
+                name="city"
+              />
+            </div>
+          </div>
+          <div class="form-row align-items-end">
+            <div class="form-group col-12 col-md-12">
+              <button type="submit" class="btn btn-primary">Commander</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!--  <script src="./js/article.js"></script>
+        <script src="./js/articleManager.js"></script>
+        <script src="./js/favoritesManager.js"></script> -->
+      <!-- <script src="./product.js"></script> -->
+      <script src="./js/basket.js"></script>
+    </div>
+  </body>
+</html>
