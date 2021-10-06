@@ -1,8 +1,7 @@
+// Stockage des données du localStorage dans une variable
 var listProduct = JSON.parse(localStorage.getItem("listArticle"));
 
-// console.log(listProduct);
-
-// vérifier si panier vide
+// vérifier si le localStorage est vide
 if (listProduct === null) {
   const panierVide = `<div class="col">
     Votre panier est vide
@@ -10,8 +9,8 @@ if (listProduct === null) {
     `;
   document.querySelector(".container").innerHTML = panierVide;
 } else {
+  // si localStorage n'est pas vide, afficher la liste des produits du panier
   for (let elt of listProduct) {
-    // console.log(product);
     const addToBasket = `<tr>          
         <td>${elt.nom}</td>
         <td>${elt.couleur}</td>
@@ -22,7 +21,9 @@ if (listProduct === null) {
     document.querySelector(".basket_resume").innerHTML += addToBasket;
   }
 }
-
+// --------------------------------------------------------------
+// -------------------------Prix Total----------------------------
+// ---------------------------------------------------------------
 // Calcul du prix total des produits dans le panier
 let prixTotal = [];
 for (let t = 0; t < listProduct.length; t++) {
@@ -42,11 +43,15 @@ const totalPrice = `
                       </tr>
                     `;
 document.querySelector(".basket_resume").innerHTML += totalPrice;
+// ----------------------------- END -------------------------------------
+
+// -------------------------------------------------------------------------
+// ---------Validation Formulaire----Envoi Backend-------Valider Commande-----
 
 // fonction pour valider les entrées du formulaire
 function formValidity() {
   var valid = true;
-  for (let input of document.querySelectorAll("form input")) {
+  for (let input of document.querySelectorAll(".form-control")) {
     valid &= input.checkValidity();
     if (!valid) {
       break;
@@ -57,7 +62,9 @@ function formValidity() {
   }
 }
 
+// fonction pour envoyer l'objet contact et le tableau product au backend
 function sendToBackend() {
+  // Objet contact
   let contact = {
     firstName: firstName.value,
     lastName: lastName.value,
@@ -65,7 +72,7 @@ function sendToBackend() {
     city: city.value,
     email: email.value,
   };
-
+  // création du tableau products
   let products = [];
   for (let p of listProduct) {
     products.push(p.id);
@@ -85,8 +92,8 @@ function sendToBackend() {
       }
     })
     .then(function (value) {
-      // console.log(value);
-      //création des clés orderId et prixTotal dans le localStorage
+      /*Création des clés orderId et prixTotal dans le localStorage, 
+      ces données seront affichées sur la page de confirmation*/
       let orderResume = () => {
         localStorage.setItem("orderId", JSON.stringify(value.orderId));
         localStorage.setItem("prixTotal", JSON.stringify(prixTotalCalcul));
@@ -100,8 +107,11 @@ function sendToBackend() {
     });
 }
 
+// fonction qui permet de valider la commande
 function btnOrder() {
   formValidity();
   sendToBackend();
 }
-document.querySelector("form .btn").addEventListener("click", btnOrder);
+document.querySelector("form").addEventListener("submit", btnOrder);
+
+// ---------------------------- END -------------------------------------
