@@ -33,7 +33,6 @@ for (let t = 0; t < listProduct.length; t++) {
   prixTotal.push(priceProductToBasket);
 }
 
-
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 const prixTotalCalcul = prixTotal.reduce(reducer);
 const totalPrice = `
@@ -110,9 +109,10 @@ function sendToBackend() {
 }
 
 // fonction qui permet de valider la commande
-function btnOrder() {
+function btnOrder(event) {
   formValidity();
   sendToBackend();
+  event.preventDefault();
 }
 document.querySelector("form").addEventListener("submit", btnOrder);
 
