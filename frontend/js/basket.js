@@ -64,7 +64,7 @@ function formValidity() {
 }
 
 // fonction pour envoyer l'objet contact et le tableau product au backend
-function sendToBackend() {
+function sendToBackend(url) {
   // Objet contact
   let contact = {
     firstName: firstName.value,
@@ -79,7 +79,7 @@ function sendToBackend() {
     products.push(p.id);
   }
 
-  fetch("http://localhost:3000/api/teddies/order", {
+  fetch(url, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -111,7 +111,7 @@ function sendToBackend() {
 // fonction qui permet de valider la commande
 function btnOrder(event) {
   formValidity();
-  sendToBackend();
+  sendToBackend("http://localhost:3000/api/teddies/order");
   event.preventDefault();
 }
 document.querySelector("form").addEventListener("submit", btnOrder);
